@@ -1,0 +1,45 @@
+version: '3.8'
+services:
+  mysql-service:
+    container_name: mysql-service
+    build:
+      context: ./mysql-service
+      dockerfile: Dockerfile
+    ports:
+    - 3306:3306
+    restart: always
+    environment: 
+      MYSQL_ROOT_PASSWORD: 123456
+  
+  redis-service:
+    container_name: redis-service
+    image: redis:5.0.7
+    ports:
+    - 6379:6379
+    restart: always
+
+  java-service:
+    container_name: java-service
+    build:
+      context: ./java-service
+      dockerfile: Dockerfile
+    command: java -jar /app.jar
+    environment:
+      MYSQL_SERVER: mysql-service
+      REDIS_SERVER: redis-service
+    ports:
+    - 8081:8081
+    restart: always
+    depends_on:
+      - mysql-service
+      - redis-service
+
+  vue-web:
+    container_name: vue-web
+    build:
+      context: ./vue-web
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - java-service

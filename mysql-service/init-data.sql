@@ -1,0 +1,2 @@
+INSERT INTO `sys_user` VALUES ('e9ca23d68d884d4ebb19d07889727dae', 'admin', '管理员', 'cb362cfeefbf3d8d', 'RCGTeGiH', 'logo_1606575029126.png', '2021-04-29 00:00:00', 0, 'test@126.com', 'admin', '13677775555', NULL, NULL, '管理员', '2021-09-09 10:04:36', 0);
+INSERT INTO `user_role` VALUES ('admin', 1, '管理员', 0, NULL, NULL, NULL, NULL);
