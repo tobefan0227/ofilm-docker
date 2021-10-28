@@ -1,0 +1,5 @@
+1. 下载docker desktop软件
+https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe
+默认安装，一路next，完成后会提示重启，重启后启动docker desktop软件
+2. 运行windows.bat，如提示[y/n],输入y
+3. 浏览器输入 localhost:8080 ,账号：admin 密码：123456
