@@ -29,6 +29,7 @@ services:
       REDIS_SERVER: redis-service
     ports:
     - 8081:8081
+    - 8899:443/udp
     restart: always
     depends_on:
       - mysql-service

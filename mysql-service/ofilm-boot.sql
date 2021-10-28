@@ -11,7 +11,7 @@
  Target Server Version : 80024
  File Encoding         : 65001
 
- Date: 26/10/2021 16:46:05
+ Date: 28/10/2021 10:26:38
 */
 
 SET NAMES utf8mb4;
@@ -95,26 +95,12 @@ CREATE TABLE `assets_manager_record`  (
 ) ENGINE = MyISAM AUTO_INCREMENT = 35 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Table structure for assets_site_record
--- ----------------------------
-DROP TABLE IF EXISTS `assets_site_record`;
-CREATE TABLE `assets_site_record`  (
-  `id` int(0) NOT NULL AUTO_INCREMENT,
-  `asset_no` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '资产编号',
-  `asset_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '资产名称',
-  `site_code` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '地点编码',
-  `create_by` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `create_time` datetime(0) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '资产绑定地点记录表' ROW_FORMAT = Dynamic;
-
--- ----------------------------
 -- Table structure for base_stations
 -- ----------------------------
 DROP TABLE IF EXISTS `base_stations`;
 CREATE TABLE `base_stations`  (
   `id` int(0) NOT NULL AUTO_INCREMENT,
-  `no` int(0) NOT NULL COMMENT '基站编号',
+  `no` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '基站编号',
   `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '基站名称',
   `x` float NULL DEFAULT NULL,
   `y` float NULL DEFAULT NULL,
@@ -132,6 +118,9 @@ CREATE TABLE `base_stations`  (
   `update_by` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `update_time` datetime(0) NULL DEFAULT NULL,
   `awake` varchar(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '0' COMMENT '是否为唤醒基站',
+  `anchor_xy` varchar(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '隧道模式计算方向',
+  `tunnel_group` int(0) NULL DEFAULT 0 COMMENT '隧道模式编组',
+  `critical` int(0) NULL DEFAULT NULL COMMENT '单基站触发阈值',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = MyISAM AUTO_INCREMENT = 26 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '基站表' ROW_FORMAT = Dynamic;
 
@@ -165,7 +154,7 @@ CREATE TABLE `map_fence`  (
   `create_time` datetime(0) NULL DEFAULT NULL,
   `fence_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 148 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 153 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for org_department
@@ -253,7 +242,7 @@ CREATE TABLE `positioning_record`  (
   `dtime` bigint(0) NULL DEFAULT NULL,
   `video_url` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 64781 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 64783 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for project_list
@@ -308,6 +297,19 @@ CREATE TABLE `project_scene`  (
 ) ENGINE = MyISAM AUTO_INCREMENT = 18 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
+-- Table structure for sign_in_record
+-- ----------------------------
+DROP TABLE IF EXISTS `sign_in_record`;
+CREATE TABLE `sign_in_record`  (
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `site_no` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '地点编码',
+  `staff_no` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '员工工号',
+  `staff_name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '员工名称',
+  `sign_time` datetime(0) NULL DEFAULT NULL COMMENT '签到时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
 -- Table structure for site_data
 -- ----------------------------
 DROP TABLE IF EXISTS `site_data`;
@@ -320,21 +322,7 @@ CREATE TABLE `site_data`  (
   `create_by` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `create_time` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Table structure for station_site_record
--- ----------------------------
-DROP TABLE IF EXISTS `station_site_record`;
-CREATE TABLE `station_site_record`  (
-  `id` int(0) NOT NULL AUTO_INCREMENT,
-  `station_no` int(0) NULL DEFAULT NULL COMMENT '基站编号',
-  `station_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '基站名称',
-  `site_code` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '地点编码',
-  `create_by` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `create_time` datetime(0) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 15 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '基站绑定地点记录表' ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for sys_language
@@ -453,7 +441,7 @@ CREATE TABLE `tags_battery`  (
 DROP TABLE IF EXISTS `tags_list`;
 CREATE TABLE `tags_list`  (
   `id` int(0) NOT NULL AUTO_INCREMENT,
-  `no` int(0) NOT NULL COMMENT '标签编号',
+  `no` varbinary(30) NOT NULL COMMENT '标签编号',
   `name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '标签名称',
   `status` varchar(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '标签状态(1 在线 0 离线 )',
   `bind_no` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '绑定目标编号',
@@ -469,17 +457,6 @@ CREATE TABLE `tags_list`  (
   `z` float NULL DEFAULT NULL,
   PRIMARY KEY (`id`, `no`) USING BTREE
 ) ENGINE = MyISAM AUTO_INCREMENT = 25 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Table structure for upload_record
--- ----------------------------
-DROP TABLE IF EXISTS `upload_record`;
-CREATE TABLE `upload_record`  (
-  `id` int(0) NOT NULL AUTO_INCREMENT,
-  `upload_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '上传文件名',
-  `cur_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '文件存储名',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '文件上传记录' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for user_role
