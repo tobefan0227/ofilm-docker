@@ -8,6 +8,8 @@ services:
     ports:
     - 3306:3306
     restart: always
+    volumes:
+      - ./mysal_data:/var/lib/mysql
     environment: 
       MYSQL_ROOT_PASSWORD: 123456
   
@@ -31,6 +33,8 @@ services:
     - 8081:8081
     - 8899:443/udp
     restart: always
+    volumes:
+      - ./file_static:/home/server/static
     depends_on:
       - mysql-service
       - redis-service
