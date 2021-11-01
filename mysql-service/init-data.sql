@@ -1,12 +1,12 @@
 INSERT INTO `sys_user` VALUES ('e9ca23d68d884d4ebb19d07889727dae', 'admin', '管理员', 'cb362cfeefbf3d8d', 'RCGTeGiH', 'logo_1606575029126.png', '2021-04-29 00:00:00', 0, 'test@126.com', 'admin', '13677775555', NULL, NULL, '管理员', '2021-09-09 10:04:36', 0);
 INSERT INTO `user_role` VALUES ('admin', 1, '管理员', 0, NULL, NULL, NULL, NULL);
 
-INSERT INTO `base_stations` VALUES (30, '23', '基站4号', 20000, 5700, 0, 'z002', NULL, 'RSA', 1, 1, '1.0', '10.10.10.14', '44', '管理员', '2021-10-28 17:51:16', '管理员', '2021-10-29 13:15:50', 0, 0, 1, 1, 35);
-INSERT INTO `base_stations` VALUES (29, '26', '基站3号', 20000, 11000, 0, 'z002', NULL, 'RSA', 1, 1, '1.0', '10.10.10.12', '33', '管理员', '2021-10-28 17:50:16', '管理员', '2021-10-29 13:15:59', 0, 0, 1, 1, 38);
-INSERT INTO `base_stations` VALUES (28, '24', '基站2号', 12000, 4000, 0, 'z002', NULL, 'RSA', 1, 1, '1.0', '10.10.10.11', '22', '管理员', '2021-10-28 17:49:47', '管理员', '2021-10-29 13:16:12', 0, 0, 1, 1, 36);
-INSERT INTO `base_stations` VALUES (27, '25', '基站1号', 11500, 9700, 0, 'z002', NULL, 'RSA', 1, 1, '1.0', '10.10.10.10', '1', '管理员', '2021-10-28 17:48:41', '管理员', '2021-10-29 13:16:15', 0, 0, 1, 1, 37);
-INSERT INTO `base_stations` VALUES (31, '3e0', '0', 10, 10, NULL, 'z002', NULL, NULL, 0, 1, NULL, NULL, NULL, '管理员', '2021-10-29 13:03:57', '管理员', '2021-10-29 13:16:22', 0, 0, 0, NULL, 992);
-INSERT INTO `base_stations` VALUES (32, '3e1', '1', 23400, 16731, 0, 'z002', NULL, NULL, 0, 1, NULL, NULL, NULL, '管理员', '2021-10-29 13:04:18', '管理员', '2021-10-29 13:16:31', 0, 0, 0, NULL, 993);
+INSERT INTO `base_stations` VALUES (30, '23', '基站4号', 20000, 5700, 0, 'z002', 16, 'RSA', 1, 1, '1.0', '10.10.10.14', '44', '管理员', '2021-10-28 17:51:16', '管理员', '2021-10-29 13:15:50', 0, 0, 1, 1, 35);
+INSERT INTO `base_stations` VALUES (29, '26', '基站3号', 20000, 11000, 0, 'z002', 16, 'RSA', 1, 1, '1.0', '10.10.10.12', '33', '管理员', '2021-10-28 17:50:16', '管理员', '2021-10-29 13:15:59', 0, 0, 1, 1, 38);
+INSERT INTO `base_stations` VALUES (28, '24', '基站2号', 12000, 4000, 0, 'z002', 16, 'RSA', 1, 1, '1.0', '10.10.10.11', '22', '管理员', '2021-10-28 17:49:47', '管理员', '2021-10-29 13:16:12', 0, 0, 1, 1, 36);
+INSERT INTO `base_stations` VALUES (27, '25', '基站1号', 11500, 9700, 0, 'z002', 16, 'RSA', 1, 1, '1.0', '10.10.10.10', '1', '管理员', '2021-10-28 17:48:41', '管理员', '2021-10-29 13:16:15', 0, 0, 1, 1, 37);
+INSERT INTO `base_stations` VALUES (31, '3e0', '0', 10, 10, NULL, 'z002', 16, NULL, 0, 1, NULL, NULL, NULL, '管理员', '2021-10-29 13:03:57', '管理员', '2021-10-29 13:16:22', 0, 0, 0, NULL, 992);
+INSERT INTO `base_stations` VALUES (32, '3e1', '1', 23400, 16731, 0, 'z002', 16, NULL, 0, 1, NULL, NULL, NULL, '管理员', '2021-10-29 13:04:18', '管理员', '2021-10-29 13:16:31', 0, 0, 0, NULL, 993);
 
 
 
@@ -109,6 +109,16 @@ INSERT INTO `tags_list` VALUES (131, '4', 'tag4', NULL, NULL, NULL, NULL, 0, 0, 
 INSERT INTO `tags_list` VALUES (130, '3', 'tag3', NULL, NULL, NULL, NULL, 0, 0, 0, '管理员', '2021-10-29 12:52:37', 2111, 2222, 333, 3);
 INSERT INTO `tags_list` VALUES (129, '2', 'tag2', NULL, NULL, NULL, NULL, 0, 0, 0, '管理员', '2021-10-29 12:52:37', 1111, 2222, 333, 2);
 INSERT INTO `tags_list` VALUES (128, '1', 'tag1', NULL, NULL, NULL, NULL, 0, 0, 0, '管理员', '2021-10-29 12:52:37', 0, 0, 0, 1);
+INSERT INTO `tags_list` VALUES (227, '10000090', 'tag090', NULL, NULL, NULL, NULL, 0, 0, 0, '管理员', '2021-10-29 15:44:21', 0, 0, 0, 268435600);
+INSERT INTO `tags_list` VALUES (228, '10000091', 'tag091', NULL, NULL, NULL, NULL, 0, 0, 0, '管理员', '2021-10-29 15:44:57', 0, 0, 0, 268435601);
+INSERT INTO `tags_list` VALUES (229, '10000092', 'tag092', NULL, NULL, NULL, NULL, 0, 0, 0, '管理员', '2021-10-29 15:45:07', 0, 0, 0, 268435602);
+INSERT INTO `tags_list` VALUES (230, '10000093', 'tag093', NULL, NULL, NULL, NULL, 0, 0, 0, '管理员', '2021-10-29 15:45:16', 0, 0, 0, 268435603);
+INSERT INTO `tags_list` VALUES (231, '10000094', 'tag094', NULL, NULL, NULL, NULL, 0, 0, 0, '管理员', '2021-10-29 15:45:23', 0, 0, 0, 268435604);
+INSERT INTO `tags_list` VALUES (232, '10000095', 'tag095', NULL, NULL, NULL, NULL, 0, 0, 0, '管理员', '2021-10-29 15:45:30', 0, 0, 0, 268435605);
+INSERT INTO `tags_list` VALUES (233, '10000096', 'tag096', NULL, NULL, NULL, NULL, 0, 0, 0, '管理员', '2021-10-29 15:45:38', 0, 0, 0, 268435606);
+INSERT INTO `tags_list` VALUES (234, '10000097', 'tag097', NULL, NULL, NULL, NULL, 0, 0, 0, '管理员', '2021-10-29 15:45:45', 0, 0, 0, 268435607);
+INSERT INTO `tags_list` VALUES (235, '10000098', 'tag098', NULL, NULL, NULL, NULL, 0, 0, 0, '管理员', '2021-10-29 15:45:55', 0, 0, 0, 268435608);
+INSERT INTO `tags_list` VALUES (236, '10000099', 'tag099', NULL, NULL, NULL, NULL, 0, 0, 0, '管理员', '2021-10-29 15:46:02', 0, 0, 0, 268435609);
 
 
 INSERT INTO `site_data` VALUES (8, 'z002', '东京', 'zone', NULL, '管理员', '2021-10-28 17:39:31');
