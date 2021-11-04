@@ -143,6 +143,10 @@ INSERT INTO `site_data` (`id`, `code`, `name`, `type`, `par_code`, `create_by`, 
 	(23, 'f011', '11floor', 'floor', 'z001,p001', '管理员', '2021-11-04 06:21:13');
 
 INSERT INTO `project_map` (`id`, `name`, `map_url`, `site_code`, `create_by`, `create_time`, `update_by`, `update_time`, `width`, `height`) VALUES
-	(19, '东京', 'f63b0f38-b65d-4a8c-9ff7-6772db0eca48.png', 'z002', '管理员', '2021-10-28 17:46:56', NULL, NULL, 23.4, NULL),
+	(19, '东京', 'f63b0f38-b65d-4a8c-9ff7-6772db0eca48.png', 'z002', '管理员', '2021-10-28 17:46:56', NULL, NULL, 23.1, NULL),
 	(12, '深圳13楼', '26cb0511-732c-4251-8d25-3339f43a0aa9.jpg', 'z001', '管理员', '2021-08-10 15:13:08', '管理员', '2021-11-01 19:09:55', 49, NULL),
 	(20, '11floor', '4d23c93a-4ded-4c29-bcc2-117ee941de11.jpg', 'z001,p001,f011', '管理员', '2021-11-04 06:19:23', '管理员', '2021-11-04 07:44:22', 15.76, NULL);
+
+
+INSERT INTO `org_department` VALUES (1, 'shengchan', '生产部', 'z002', '管理员', NULL, '2021-10-19 15:19:09', NULL);
+INSERT INTO `org_duty` VALUES (1, 'hangong', '焊工', 4, '管理员', '管理员', '2021-10-19 15:08:22', '2021-10-30 16:36:31');
