@@ -3,6 +3,7 @@ ENV MYSQL_SERVER="" \
     REDIS_SERVER=""
 COPY ofilm-service-0.0.1-SNAPSHOT.jar app.jar
 COPY Soldier /home/server/static/Soldier
+COPY MMD20210929194319 /home/server/static/MMD20210929194319
 COPY sign.mp3 /home/server/static/sign.mp3
 COPY intrude.mp3 /home/server/static/intrude.mp3
 COPY f63b0f38-b65d-4a8c-9ff7-6772db0eca48.png /home/server/static/f63b0f38-b65d-4a8c-9ff7-6772db0eca48.png

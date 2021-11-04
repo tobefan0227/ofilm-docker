@@ -150,3 +150,5 @@ INSERT INTO `project_map` (`id`, `name`, `map_url`, `site_code`, `create_by`, `c
 
 INSERT INTO `org_department` VALUES (1, 'shengchan', '生产部', 'z002', '管理员', NULL, '2021-10-19 15:19:09', NULL);
 INSERT INTO `org_duty` VALUES (1, 'hangong', '焊工', 4, '管理员', '管理员', '2021-10-19 15:08:22', '2021-10-30 16:36:31');
+
+INSERT INTO `project_scene` VALUES (17, 'Unity2GLTF.gltf', 'MMD20210929194319', '空白', '管理员', '2021-09-30 09:49:35', NULL, NULL);
